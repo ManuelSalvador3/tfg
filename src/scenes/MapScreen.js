@@ -86,7 +86,7 @@ export default function MapScreen({route}) {
             setDestino({ latitude: details.geometry.location.lat, longitude: details.geometry.location.lng})
           }}
           query={{
-            key: 'AIzaSyA-Dpr8amxmcnE-8LPk2ehApbuWm4Yw7zU',
+            key: 'GOOGLE API KEY',
             language: 'en',
             components: "country:es",
             radius: 30000,
