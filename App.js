@@ -10,12 +10,7 @@ import 'react-native-gesture-handler';
 
 
 import {Router, Scene} from 'react-native-router-flux';
-// import Register from './src/screens/login/Register';
-// import { NavigationContainer } from '@react-navigation/native';
-// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import MapView from 'react-native-maps'
 
-// import the different screens
 
 
 
@@ -26,9 +21,11 @@ export default class App extends React.Component {
     return (
       <Router>
         <Scene key='auth' hideNavBar>
-          {/* <Scene key='main' component={Main} tittle='Main'/> */}
-          {/* <Scene key='register' component={Register} tittle='Register'/> */}
+          
           <Scene key='login' component={Login} tittle='Login'/>
+          <Scene key='register' component={Register} tittle='Register'/>
+          <Scene key='main' component={Main} tittle='Main'/>
+          
           
           {/* <Scene key='profile' component={Profile} tittle='Profile'/> */}
         </Scene>

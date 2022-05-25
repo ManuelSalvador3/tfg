@@ -1,9 +1,8 @@
 
 import React from 'react'
-// import { Actions } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
-import main from 'C:\\00 TFG\\tfg\\src\\screens\\login\\Register.js'
-
+import Main from 'C:\\GITHUB\\tfg\\tfg\\src\\screens\\login\\Main'
 
 export default class Register extends React.Component{
   state={
@@ -29,6 +28,7 @@ export default class Register extends React.Component{
     .then(response => {
       console.log(this.state.name)
     })
+    .then(() => Actions.main())
     .catch(err => {
       console.log(err)
     })

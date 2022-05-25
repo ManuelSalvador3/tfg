@@ -1,7 +1,7 @@
 // Login.js
 import React from 'react'
 // import { Actions } from 'react-native-router-flux';
-import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
+import { StyleSheet, Alert, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import Register from './Register';
 import {Actions} from 'react-native-router-flux'
 
@@ -9,27 +9,77 @@ export default class Login extends React.Component {
   state={
     username:"",
     password:"",
-    sacado: ""
+    sacado1: "",
+    sacado2: "",
+    haserror: false
   }
 
-  loginin = () => {
-    fetch("http://192.168.1.93:5000/login", {
-      method: "GET"
-    })
-    .then(response => response.json())
-    .then(response => {
-      this.setState({
-        sacado: response
+  auth = () => {
+    if(this.State.sacado1) {
+      Actions.main()
+    }
+    
+  }
+  
+  loginin = async (event) => {
+    event.preventDefault();
+    try {
+      const responsive = await fetch(`http://192.168.1.93:5000/login/${this.state.username}/${this.state.password}`, {
+        method: "GET"
       })
-    })
-    .catch(err => { console.log(err); 
-    });
+      .then(responsive => responsive.json())
+      if(responsive != undefined) {
+        this.setState({
+          sacado1: responsive[0].username,
+          sacado2: responsive[0].password
+        })
+        Actions.main()
+        console.log("Login correcto, el usuario existe")
+      } else {
+        this.State.haserror = true
+        console.log("Incorrect user or password")
+      }
+    } catch (err) {
+      Alert.alert(
+        "Error while Login",
+        "Invalid username or password"
+      )
+      console.log("Usuario o contraseña incorrectos")
+    }
+    // event.preventDefault();
+    // const responsive = await fetch(`http://192.168.1.93:5000/login/${this.state.username}/${this.state.password}`, {
+    //   method: "GET"
+    // })
+    // .then(responsive => responsive.json())
+    // .catch(err) {
+    //   console.log("Error con el login")
+    // }
+    // if(responsive != undefined) {
+    //   this.setState({
+    //     sacado1: responsive[0].username,
+    //     sacado2: responsive[0].password
+    //   })
+    //   Actions.main()
+    //   console.log("Login correcto, el usuario existe")
+    // } else {
+    //   this.State.haserror = true
+    //   console.log("Incorrect user or password")
+    // }
+    // // .then(responsive => {
+    //   this.setState({
+    //     sacado1: responsive[0].username,
+    //     sacado2: responsive[0].password
+    //   })
+    // })
+    
   }
-
 
 
   
   render() {
+    if(this.state.haserror) {
+          return <Alert severity="error">This is an error alert — check it out!</Alert>
+    }
     return (
       <View style={styles.container}>
         <Text style={styles.logo}>blured</Text>
@@ -51,7 +101,7 @@ export default class Login extends React.Component {
         <TouchableOpacity>
           <Text style={styles.forgot}>Forgot Password?</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.loginBtn} >
+        <TouchableOpacity style={styles.loginBtn} onPress={this.loginin} >
           <Text style={styles.loginText} onPress={this.loginin}>LOGIN</Text>
         </TouchableOpacity>
         <TouchableOpacity>

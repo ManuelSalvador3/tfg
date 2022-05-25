@@ -12,7 +12,7 @@ app.post("/registering", async(req, res) => {
     console.log(req)
     try {
         const {data} = req.body;
-        console.log(req.body.second_name);
+        // console.log(req.body.second_name);
         const registering = await pool.query(
             "INSERT INTO users (second_name, name, username, password, email) VALUES($1, $2, $3, $4, $5)", 
             [req.body.second_name, req.body.name, req.body.username, req.body.password, req.body.email]
@@ -25,14 +25,16 @@ app.post("/registering", async(req, res) => {
     }
 })
 
-app.get("/login/:username", async(req, res) => {
+app.get("/login/:username/:password", async(req, res) => {
     try {
         const { username } = req.params;
+        const { password } = req.params;
         const loginIn = await pool.query(
-            "SELECT username from users WHERE username = $1",
-            [username]
+            "SELECT username, password from users WHERE username = $1 AND password = $2",
+            [username, password]
         );
-        res.json(loginIn.rows[0]);
+        console.log(loginIn.rows)
+        res.json(loginIn.rows);
     } catch (err) {
         console.log(err.message);
     }
