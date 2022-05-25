@@ -8,10 +8,10 @@ app.use(express.json());
 
 
 const connection = mysql.createPool({
-  password: 'qVNiYi4pOQ',
-  user: 'bf9pWICbDc',
-  database: 'bf9pWICbDc',
-  host: 'remotemysql.com',
+  password: 'Your database',
+  user: 'Your database',
+  database: 'Your database',
+  host: 'Your database',
   port: 3306,
   multipleStatements: true,
 }) 
