@@ -1,0 +1,49 @@
+# DELETE https://apiexpress-heroku.herokuapp.com/deleteUser
+# token: eyJhbGciOiJIUzI1NiJ9.MjA.2-Uhe9SGDBHvAN1QpqnNimikndI7mQduQ4hveJvXU1A
+
+# GET http://localhost:5000/userTrayectos
+# token: eyJhbGciOiJIUzI1NiJ9.MQ.blkAOxkZlRifKRx7baHeaQXz17gX1DGLVx6Hb0wtuaQ
+
+
+# GET http://localhost:5000/userTrayectos
+# token: eyJhbGciOiJIUzI1NiJ9.MQ.blkAOxkZlRifKRx7baHeaQXz17gX1DGLVx6Hb0wtuaQ
+
+
+
+# GET https://apiexpress-heroku.herokuapp.com/profile
+# token: eyJhbGciOiJIUzI1NiJ9.MQ.blkAOxkZlRifKRx7baHeaQXz17gX1DGLVx6Hb0wtuaQ
+
+
+
+
+# POST https:/localhost:5000/updateProfile
+# Content-Type: application/json 
+# token: eyJhbGciOiJIUzI1NiJ9.NA.MGNAds68GXe339_B7_7vJ5YuVIxHrMqNg3G8cNqdxeg
+
+# {
+#     "name": "Miguel",
+#     "second_name": "Baquedano",
+#     "username": "baque27",
+#     "email": "miguelbaquedano@gmail.com",
+#     "password": "pruebaAlfonso"
+# }
+
+
+
+# GET  https://apiexpress-heroku.herokuapp.com/userCoords
+# token: eyJhbGciOiJIUzI1NiJ9.MQ.blkAOxkZlRifKRx7baHeaQXz17gX1DGLVx6Hb0wtuaQ
+
+
+# GET  http://localhost:5000/login/burrito/123
+
+
+# POST http://localhost:5000/coords
+# Content-Type: application/json
+# token: eyJhbGciOiJIUzI1NiJ9.MTk.tqK6ozdvBVp9m4D2ZQxFhxXTNYEu_UHtJ9lGSLZ6eWs
+
+
+# {
+#     "latitud": "40.6402700",
+#     "longitud": "-3.7315100",
+#     "time": "2022-5-11 11:13:10"
+# }
